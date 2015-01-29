@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+
+$body-font:'Source Sans Pro',sans-serif;
+
+
+$grey : #999;
+$dark-grey : #666;
+$light-grey: #ddd;
+$blue : #4183c4;
+
+
+//Classes to extend
+.thin-font {
+  font-family:$body-font;
+  font-weight:300;
+}
+.top-grey-border {
+  border-top:thin solid $light-grey;
+}
+.bot-grey-border {
+  border-bottom:thin solid $light-grey;
+}

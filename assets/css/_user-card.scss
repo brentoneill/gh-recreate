@@ -1,0 +1,32 @@
+.vcard-col {
+  h3.username {
+    @extend .thin-font;
+    margin-bottom:20px;
+  }
+  .user-info {
+    @extend .top-grey-border;
+    padding-top:20px;
+    margin-bottom:20px;
+    span {
+      margin-right:8px;
+    }
+  }
+  .user-stats {
+    @extend .top-grey-border;
+    padding-top:10px;
+    margin-bottom:10px;
+    a {
+      width:30%;
+      display:inline-block;
+      font-size:11px;
+      color:$dark-grey;
+      text-align:center;
+      strong {
+        font-size:28px;
+        color:$blue;
+        display:block;
+        text-align:center;
+      }
+    }
+  }
+}

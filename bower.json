@@ -1,0 +1,20 @@
+{
+  "name": "gh-recreate",
+  "version": "0.0.0",
+  "authors": [
+    "Brent O'Neill <brentoneill@gmail.com>"
+  ],
+  "description": "Recreation of GitHub profile using GH's API",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

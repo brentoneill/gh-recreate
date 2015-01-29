@@ -1,0 +1,29 @@
+.repo-item {
+  overflow:auto;
+  @extend .bot-grey-border;
+  padding-top:30px;
+  padding-bottom:30px;
+  font-size:16px;
+  h3 {
+    color: $blue;
+    font-size:20px;
+    margin-bottom:8px;
+  }
+}
+
+.repo-list-stats {
+  display:inline-block;
+  float:right;
+  span.language {
+    font-size:12px;
+    color:$dark-grey;
+    margin-right:12px;
+  }
+  a {
+    color:$dark-grey;
+    margin-right:6px;
+    &:hover {
+      color:$blue;
+    }
+  }
+}

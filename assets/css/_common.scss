@@ -1,0 +1,17 @@
+*{
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+}
+
+body {
+  font-family:$body-font;
+}
+a {
+  color: $blue;
+}
+a:visited {
+  color:$blue;
+}
+a:hover {
+  color:lighten($blue, 15%);
+}
