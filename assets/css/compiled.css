@@ -104,6 +104,9 @@ a:hover {
       vertical-align: middle;
       float: right; }
 
+.feed1, .feed2 {
+  display: none; }
+
 .vcard-col h3.username {
   margin-bottom: 20px; }
 .vcard-col .user-info {
@@ -111,6 +114,9 @@ a:hover {
   margin-bottom: 20px; }
   .vcard-col .user-info span {
     margin-right: 8px; }
+  .vcard-col .user-info p a {
+    text-overflow: ellipsis;
+    overflow-x: hidden; }
 .vcard-col .user-stats {
   padding-top: 10px;
   margin-bottom: 10px; }
@@ -135,6 +141,8 @@ a:hover {
     color: #4183c4;
     font-size: 20px;
     margin-bottom: 8px; }
+  .repo-item .repo-list-desc {
+    margin-bottom: 10px; }
 
 .repo-list-stats {
   display: inline-block;
@@ -164,5 +172,8 @@ a:hover {
     margin-right: 10px; }
   .alert-body .details .commit-details {
     float: left; }
+
+.active {
+  display: block; }
 
 /*# sourceMappingURL=compiled.css.map */

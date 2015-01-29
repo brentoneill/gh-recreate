@@ -19,19 +19,21 @@ var createPage = {
     //initialize styling here...
     console.log("styling initialized!")
     reposJSON = jQuery.getJSON(reposAPI, function(parsedReposJSON){
+      parsedReposJSON = _.sortBy(parsedReposJSON, 'created_at').reverse();
       createPage.renderAllRepos(parsedReposJSON);
     });
     userJSON = jQuery.getJSON(userAPI, function(parsedUserJSON){
       createPage.renderUser(parsedUserJSON);
     });
     activityJSON = jQuery.getJSON(activityAPI, function(parsedActivityJSON){
-      var wherePush = _.where(parsedActivityJSON, {type:"PushEvent"});
-      var whereCreate = _.where(parsedActivityJSON, {type:"CreateEvent"});
-      var whereDelete = _.where(parsedActivityJSON, {type:"DeleteEvent"});
-      console.log(wherePush);
-      console.log(whereCreate);
-      console.log(whereDelete);
-      createPage.renderAllActivity(wherePush);
+      // var wherePush = _.where(parsedActivityJSON, {type:"PushEvent"});
+      // var whereCreate = _.where(parsedActivityJSON, {type:"CreateEvent"});
+      // var whereDelete = _.where(parsedActivityJSON, {type:"DeleteEvent"});
+      // var pluckPush = _.pluck(parsedActivityJSON, 'PushEvent'); //gets time stamp for all activities
+      // console.log(pluckPush);
+
+      var sortedActJSON = _.sortBy(parsedActivityJSON, 'created_at').reverse();
+      createPage.renderAllActivity(sortedActJSON);
     });
 
   },
@@ -40,6 +42,16 @@ var createPage = {
     console.log("events initialized!");
 
     //Hide repos/activity;
+    $('.nav-tabs').on('click', '.repos-navbut', function (event) {
+      event.preventDefault();
+      $('.feed2').removeClass('active');
+      $('.feed1').addClass('active');
+    });
+    $('.nav-tabs').on('click', '.activity-navbut', function (event) {
+      event.preventDefault();
+      $('.feed1').removeClass('active');
+      $('.feed2').addClass('active');
+    });
 
 
   },
