@@ -18,7 +18,7 @@ templates.user = [
     "<strong><%= followers %></strong>",
     "<span class='small'>Followers</span>",
   "</a>",
-  "<a href='<%= starred_url %>'>",
+  "<a href='#'>",
     "<strong>0</strong>",
     "<span class='small'>Starred</span>",
   "</a>",
@@ -30,27 +30,53 @@ templates.user = [
 ].join("");
 
 
-templates.activity = [
+templates.pushAct = [
   "<div class='alert'>",
+  "<span class='mega-octicon octicon-git-commit'></span>",
     "<div class='alert-body'>",
-      "<span class='mega-octicon octicon-git-commit'></span>",
-      "<div class='time'><% print(formatDateTime(created_at)) %></div>",
+      "<div class='time'><% print(moment(created_at).fromNow()) %></div>",
       "<div class='title'>",
         "<a href='https://github.com/<%= actor.login %>'><%= actor.login %></a>",
-        "<span> pushed to </span>",
-        "<a href='branch-link'><%= payload.ref %></a>",
-        "<span> at </span>",
-        "<a href='repo-link''><%= repo.name %></a>",
+        "<b> pushed to </b>",
+        "<a href='https://github.com/<%= repo.name %>/tree/<%= payload.ref %>'><%= payload.ref %></a>",
+        "<b> at </b>",
+        "<a href='https://github.com/<%= repo.name %>' ><%= repo.name %></a>",
       "</div>",
       "<div class='details'>",
         "<a href='https://github.com/<%= actor.login %>'><img src=<%= actor.avatar_url %></a>",
         "<div class='commit-details'>",
-          "<a href='#' class='commit-link'><%= payload.head %></a>",
-          //"<span class='commit-message'><%= payload.commits.message %></span>",
+          "<a href='https://github.com/<%= repo.name%>/commit/<%= payload.head %>' class='commit-link'> <% print(shrink7(payload.head)) %></a>",
+          "<span class='commit-message'> <%= payload.commits[0].message %></span>",
         "</div>",
       "</div>",
     "</div>",
   "</div>"
+].join("");
+
+templates.branchAct = [
+  "<div class='alert'>",
+    "<div class='alert-body'>",
+      "<span class='octicon octicon-git-branch'></span>",
+      "<a href='https://github.com/<%= actor.login %>'><%= actor.login %></a>",
+      "<span> created branch </span>",
+      "<a href='http://github.com/<%= repo.name %>/tree/<%= payload.master_branch %>'><span class='branch-link'><span class='octicon octicon-git-branch'></span> <%= payload.ref %> </a>",
+      " at ",
+      "<a href='http://github.com/<%= repo.name %>' > <%= repo.name %> </a>",
+      "<div class='time'><% print(moment(created_at).fromNow()) %></div>",
+    "</div>",
+  "</div>"
+].join("");
+
+templates.repoAct = [
+"<div class='alert'>",
+  "<div class='alert-body'>",
+    "<span class='octicon octicon-repo'></span>",
+    "<a href='https://github.com/<%= actor.login %>'><%= actor.login %></a>",
+    "<span> created repository at </span>",
+    "<a href='http://github.com/<%= repo.name %>' > <%= repo.name %> </a>",
+    "<div class='time'><% print(moment(created_at).fromNow()) %></div>",
+  "</div>",
+"</div>"
 ].join("");
 
 
@@ -63,6 +89,6 @@ templates.repo = [
   "</div>",
   "<h3 class='repo-list-name'><a href='<%= html_url %>' ><%= name %></a></h3>",
   "<p class='repo-list-desc'><%= description %></p>",
-  "<p class='repo-list-time'>Updated <% print(formatDateTime(updated_at)) %>",
+  "<p class='repo-list-time'>Updated <% print(moment(created_at).fromNow()) %>",
   "</li>"
 ].join("");

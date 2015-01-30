@@ -1,10 +1,10 @@
-// var userAPI = "https://api.github.com/users/brentoneill";
-// var reposAPI = "https://api.github.com/users/brentoneill/repos";
-// var activityAPI = "https://api.github.com/users/brentoneill/events";
+var userAPI = "https://api.github.com/users/brentoneill";
+var reposAPI = "https://api.github.com/users/brentoneill/repos";
+var activityAPI = "https://api.github.com/users/brentoneill/events";
 
-var userAPI = "assets/JSON/user.json";
-var reposAPI = "assets/JSON/repos.json";
-var activityAPI = "assets/JSON/events.json";
+// var userAPI = "assets/JSON/user.json";
+// var reposAPI = "assets/JSON/repos.json";
+// var activityAPI = "assets/JSON/events.json";
 
 
 var createPage = {
@@ -20,6 +20,7 @@ var createPage = {
     console.log("styling initialized!")
     reposJSON = jQuery.getJSON(reposAPI, function(parsedReposJSON){
       parsedReposJSON = _.sortBy(parsedReposJSON, 'created_at').reverse();
+      console.log(parsedReposJSON);
       createPage.renderAllRepos(parsedReposJSON);
     });
     userJSON = jQuery.getJSON(userAPI, function(parsedUserJSON){
@@ -32,7 +33,7 @@ var createPage = {
       // var pluckPush = _.pluck(parsedActivityJSON, 'PushEvent'); //gets time stamp for all activities
       // console.log(pluckPush);
 
-      var sortedActJSON = _.sortBy(parsedActivityJSON, 'created_at').reverse();
+      var sortedActJSON = _.sortBy(parsedActivityJSON, 'updated_at');
       createPage.renderAllActivity(sortedActJSON);
     });
 
@@ -46,11 +47,13 @@ var createPage = {
       event.preventDefault();
       $('.feed2').removeClass('active');
       $('.feed1').addClass('active');
+      $('.search-bar').removeClass('hidden');
     });
     $('.nav-tabs').on('click', '.activity-navbut', function (event) {
       event.preventDefault();
       $('.feed1').removeClass('active');
       $('.feed2').addClass('active');
+      $('.search-bar').addClass('hidden');
     });
 
 
@@ -67,9 +70,20 @@ var createPage = {
   renderAllRepos: function(repoData) {
     _.each(repoData, createPage.renderRepo);
   },
-  renderActivity: function(activity, index, array) {
-    var compiled = _.template(templates.activity);
-    $('.feed2').append(compiled(activity));
+  renderActivity: function(event, index, array) {
+    if(event.type == "PushEvent") {
+      var compiled = _.template(templates.pushAct);
+      $('.feed2').append(compiled(event));
+    }
+    else if(event.payload.ref_type == "branch") {
+      var compiled = _.template(templates.branchAct);
+      $('.feed2').append(compiled(event));
+    }
+    else if(event.payload.ref_type == "repository") {
+      var compiled = _.template(templates.repoAct);
+      $('.feed2').append(compiled(event));
+    }
+
     console.log("activity rendered");
   },
   renderAllActivity: function(activityData) {

@@ -15,7 +15,7 @@ li {
   list-style-type: none; }
 
 .thin-font, .vcard-col h3.username {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: 300; }
 
 .top-grey-border, .vcard-col .user-info, .vcard-col .user-stats {
@@ -29,7 +29,7 @@ li {
   -moz-box-sizing: border-box; }
 
 body {
-  font-family: "Source Sans Pro", sans-serif; }
+  font-family: "Helvetica Neue", sans-serif; }
 
 a {
   color: #4183c4; }
@@ -43,7 +43,7 @@ a:hover {
 .container {
   width: 980px;
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 60px;
   margin-bottom: 100px;
   overflow: auto; }
 
@@ -63,7 +63,9 @@ a:hover {
   width: 75%; }
   .activity-col .nav-tabs {
     border-bottom: 1px solid #ddd;
-    height: 40px; }
+    margin-bottom: 10px;
+    height: 40px;
+    overflow: auto; }
     .activity-col .nav-tabs ul {
       display: inline-block; }
       .activity-col .nav-tabs ul li {
@@ -76,10 +78,37 @@ a:hover {
         .activity-col .nav-tabs ul li a.active {
           border-radius: 6px; }
     .activity-col .nav-tabs .right-nav-tabs {
-      float: right; }
+      float: right;
+      display: inline-block;
+      margin-top: 5px; }
+      .activity-col .nav-tabs .right-nav-tabs .edit-button {
+        background-image: linear-gradient(#fcfcfc, #eee);
+        background-repeat: repeat-x;
+        border: 1px solid #d5d5d5;
+        border-radius: 3px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #333;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+        white-space: nowrap;
+        padding: 6px;
+        margin-top: 10px; }
   .activity-col .search-bar {
     padding-bottom: 10px;
-    padding-top: 10px; }
+    padding-top: 10px;
+    font-size: 14px; }
+    .activity-col .search-bar .new-button {
+      color: white;
+      background-image: linear-gradient(#8add6d, #60b044);
+      background-repeat: repeat-x;
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: bold;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
+      white-space: nowrap;
+      padding: 8px;
+      margin-bottom: 12px; }
     .activity-col .search-bar input {
       width: 200px;
       margin-right: 4px;
@@ -100,6 +129,9 @@ a:hover {
         margin-right: 5px; }
       .activity-col .search-bar ul li:last-child {
         margin-right: 0px; }
+      .activity-col .search-bar ul a.active {
+        color: black;
+        font-weight: bold; }
     .activity-col .search-bar a:last-child {
       vertical-align: middle;
       float: right; }
@@ -114,6 +146,8 @@ a:hover {
   margin-bottom: 20px; }
   .vcard-col .user-info span {
     margin-right: 8px; }
+  .vcard-col .user-info p {
+    font-size: 14px; }
   .vcard-col .user-info p a {
     text-overflow: ellipsis;
     overflow-x: hidden; }
@@ -142,7 +176,15 @@ a:hover {
     font-size: 20px;
     margin-bottom: 8px; }
   .repo-item .repo-list-desc {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+    width: 80%;
+    line-height: 20px; }
+
+p.repo-list-time {
+  color: #999;
+  font-size: 12px; }
 
 .repo-list-stats {
   display: inline-block;
@@ -158,22 +200,55 @@ a:hover {
       color: #4183c4; }
 
 .alert {
-  padding-top: 20px;
-  padding-bottom: 30px; }
+  padding-top: 14px;
+  padding-bottom: 14px; }
+  .alert span.mega-octicon {
+    color: #999;
+    margin-right: 10px;
+    vertical-align: top;
+    margin-top: 6px; }
 
-.alert-body span {
-  color: #999; }
-.alert-body .details {
-  overflow: auto; }
-  .alert-body .details img {
-    width: 30px;
-    height: 30px;
-    float: left;
-    margin-right: 10px; }
-  .alert-body .details .commit-details {
-    float: left; }
+.alert-body {
+  display: inline-block;
+  font-size: 14px; }
+  .alert-body span.octicon {
+    margin-right: 10px;
+    color: #999; }
+  .alert-body .title {
+    font-size: 14px;
+    font-weight: bold; }
+  .alert-body .details {
+    overflow: auto; }
+    .alert-body .details img {
+      width: 30px;
+      height: 30px;
+      float: left;
+      border-radius: 4px;
+      margin-right: 10px; }
+    .alert-body .details .commit-details {
+      float: left; }
+  .alert-body a span.branch-link {
+    background-color: #e8f1f6;
+    border-radius: 4px;
+    padding: 4px;
+    font-family: 'Courier';
+    color: #999;
+    font-size: 11px;
+    margin-right: 2px; }
+    .alert-body a span.branch-link .octicon {
+      margin-right: 2px; }
+  .alert-body .commit-message {
+    font-size: 12px; }
+
+.time {
+  color: #999;
+  font-size: 12px;
+  display: inline-block; }
 
 .active {
   display: block; }
+
+.hidden {
+  display: none; }
 
 /*# sourceMappingURL=compiled.css.map */

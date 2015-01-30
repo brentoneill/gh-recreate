@@ -11,7 +11,16 @@
   }
   .repo-list-desc {
     margin-bottom:10px;
+    color:$dark-grey;
+    font-size:14px;
+    width:80%;
+    line-height:20px;;
   }
+}
+
+p.repo-list-time {
+  color:$grey;
+  font-size:12px;
 }
 
 .repo-list-stats {

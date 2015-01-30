@@ -1,11 +1,25 @@
 .alert {
   @extend .bot-grey-border;
-  padding-top:20px;
-  padding-bottom:30px;
+  padding-top:14px;
+  padding-bottom:14px;
+  span.mega-octicon {
+    color:$grey;
+    margin-right:10px;
+    vertical-align:top;
+    margin-top:6px;
+  }
+
 }
 .alert-body {
-  span {
+  display:inline-block;
+  font-size:14px;
+  span.octicon {
+    margin-right:10px;
     color:$grey;
+  }
+  .title {
+    font-size:14px;
+    font-weight:bold;
   }
   .details {
     overflow:auto;
@@ -13,10 +27,32 @@
       width:30px;
       height:30px;
       float:left;
+      border-radius:4px;
       margin-right:10px;
     }
     .commit-details {
       float:left;
     }
   }
+  a span.branch-link {
+    background-color:#e8f1f6;
+    border-radius:4px;
+    padding:4px;
+    font-family: 'Courier';
+    color:$grey;
+    font-size:11px;
+    margin-right:2px;
+    .octicon {
+      margin-right:2px;
+    }
+  }
+  .commit-message {
+    font-size:12px;
+  }
+}
+
+.time {
+  color:$grey;
+  font-size:12px;
+  display:inline-block;
 }
