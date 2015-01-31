@@ -43,6 +43,7 @@
     font-size:11px;
     margin-right:2px;
     .octicon {
+      padding-top:2px;
       margin-right:2px;
     }
   }
@@ -55,4 +56,10 @@
   color:$grey;
   font-size:12px;
   display:inline-block;
+}
+
+.feed1 {
+  li:first-child {
+    margin-right:0px;
+  }
 }

@@ -145,20 +145,24 @@ a:hover {
   padding-top: 20px;
   margin-bottom: 20px; }
   .vcard-col .user-info span {
-    margin-right: 8px; }
+    margin-right: 8px;
+    color: #999; }
   .vcard-col .user-info p {
-    font-size: 14px; }
+    font-size: 14px;
+    margin-bottom: 4px; }
   .vcard-col .user-info p a {
     text-overflow: ellipsis;
     overflow-x: hidden; }
+  .vcard-col .user-info span.date {
+    color: black; }
 .vcard-col .user-stats {
   padding-top: 10px;
   margin-bottom: 10px; }
   .vcard-col .user-stats a {
-    width: 30%;
+    width: 33.33%;
     display: inline-block;
     font-size: 11px;
-    color: #666;
+    color: #999;
     text-align: center; }
     .vcard-col .user-stats a strong {
       font-size: 28px;
@@ -167,7 +171,6 @@ a:hover {
       text-align: center; }
 
 .repo-item {
-  overflow: auto;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 16px; }
@@ -236,6 +239,7 @@ p.repo-list-time {
     font-size: 11px;
     margin-right: 2px; }
     .alert-body a span.branch-link .octicon {
+      padding-top: 2px;
       margin-right: 2px; }
   .alert-body .commit-message {
     font-size: 12px; }
@@ -244,6 +248,9 @@ p.repo-list-time {
   color: #999;
   font-size: 12px;
   display: inline-block; }
+
+.feed1 li:first-child {
+  margin-right: 0px; }
 
 .active {
   display: block; }
