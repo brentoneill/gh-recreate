@@ -65,7 +65,6 @@ var createPage = {
   renderRepo: function(repo, index, array) {
     var compiled = _.template(templates.repo);
     $('.feed1').append(compiled(repo));
-
   },
   renderAllRepos: function(repoData) {
     _.each(repoData, createPage.renderRepo);
